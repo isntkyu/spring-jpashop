@@ -14,9 +14,9 @@ public class MemberRepository {
 //    @PersistenceContext
     private final EntityManager em;
 
-//    public void save(Member member) {
-//        em.persist(member);
-//    }
+    public void save(Member member) {
+        em.persist(member);
+    }
 
     public Member findOne(Long id) {
         Member member = em.find(Member.class, id);
