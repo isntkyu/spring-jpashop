@@ -25,4 +25,25 @@ public class OrderItem {
 
     private int orderPrice;
     private int count;
+
+    //생성메서드
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setCount(count);
+        orderItem.setOrderPrice(orderPrice);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    //business logic
+    public void cancle() {
+        getItem().addStock(count);
+    }
+
+    // 조회로직
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
 }
